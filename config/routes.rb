@@ -73,6 +73,12 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_user/:path_id", { :controller => "users", :action => "destroy" })
 
+  #SIGN IN
+  get("/users/sign_in", { :controller => "users", :action => "sign_in" })
+
+  get("/users/sign_up", { :controller => "users", :action => "sign_up" })
+
+
   #------------------------------
 
   # Routes for the Photo resource:
@@ -101,12 +107,7 @@ Rails.application.routes.draw do
 
   get "/", :controller => "users", :action => "index"
   
-  get("/users", { :controller => "user", :action => "homepage" })
-
-  get("/users/sign_in", { :controller => "user", :action => "sign_in" })
-
-  get("/users/sign_up", { :controller => "user", :action => "sign_up" })
-
+  
   get("/photos", { :controller => "photos", :action => "homepage" })
   
 end

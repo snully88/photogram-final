@@ -7,6 +7,12 @@ class UsersController < ApplicationController
     render({ :template => "users/index" })
   end
 
+  def sign_in
+    
+    render({ :template => "users/sign_in" })
+  end
+
+
   def show
     the_id = params.fetch("path_id")
 
