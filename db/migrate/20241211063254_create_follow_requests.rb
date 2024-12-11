@@ -4,8 +4,6 @@ class CreateFollowRequests < ActiveRecord::Migration[7.1]
       t.integer :sender_id
       t.integer :recipient_id
       t.string :status
-      t.datetime :created_at
-      t.datetime :updated_at
 
       t.timestamps
     end

@@ -10,8 +10,6 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.datetime :remember_created_at
       t.string :reset_password_token
       t.datetime :reset_password_sent_at
-      t.datetime :created_at
-      t.datetime :updated_at
 
       t.timestamps
     end
