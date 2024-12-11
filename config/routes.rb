@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # Routes for the Comment resource:
 
   # CREATE
@@ -73,10 +74,7 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_user/:path_id", { :controller => "users", :action => "destroy" })
 
-  #SIGN IN
-  #get("/users/sign_in", { :controller => "users", :action => "sign_in" })
 
-  #get("/users/sign_up", { :controller => "users", :action => "sign_up" })
 
 
   #------------------------------

@@ -8,11 +8,6 @@ class UsersController < ApplicationController
   end
 
 
-  def sign_up
-    render({ :template => "users/sign_up" })
-  end
-
-
   def show
     the_id = params.fetch("path_id")
 
