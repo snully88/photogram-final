@@ -1,0 +1,56 @@
+<div>
+  <div>
+    <h1>
+      Comment #<%= @the_comment.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/comments">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_comment/<%= @the_comment.id %>">
+          Delete comment
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_comment.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_comment.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit comment
+    </h2>
+
+    <form action="/modify_comment/<%= @the_comment.id %>"  method="post" >
+      <button>
+        Update comment
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
