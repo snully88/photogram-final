@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     render({ :template => "users/index" })
   end
 
-  def sign_in
-    
-    render({ :template => "users/sign_in" })
+
+  def sign_up
+    render({ :template => "users/sign_up" })
   end
 
 
@@ -25,12 +25,16 @@ class UsersController < ApplicationController
 
   def create
     the_user = User.new
+    the_user.email = params.fetch("query_email")
+    the_user.password = params.fetch("query_password")
+    the_user.username = params.fetch("query_username")
+    the_user.private = params.fetch("query_private")
 
     if the_user.valid?
       the_user.save
       redirect_to("/users", { :notice => "User created successfully." })
     else
-      redirect_to("/users", { :alert => the_user.errors.full_messages.to_sentence })
+      redirect_to("/users/sign_up", { :alert => the_user.errors.full_messages.to_sentence })
     end
   end
 
