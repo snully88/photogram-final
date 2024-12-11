@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  devise_for :users
+
   # Routes for the Comment resource:
 
   # CREATE

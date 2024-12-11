@@ -17,5 +17,5 @@ class FollowRequest < ApplicationRecord
   
     # Validations
     validates :status, presence: true #, inclusion: { in: %w[pending accepted rejected] }
-    
+  end
 end
