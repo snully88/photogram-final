@@ -34,7 +34,7 @@
         </td>
 
         <td>
-          <%= a_user.private %> 
+          <%= a_user.private ? 'Yes' : 'No' %>
         </td>
 
         <td>
@@ -42,6 +42,7 @@
             Show details
           </a>
         </td>
+
       </tr>
       <% end %>
     </table>
