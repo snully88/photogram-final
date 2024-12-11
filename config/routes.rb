@@ -74,9 +74,9 @@ Rails.application.routes.draw do
   get("/delete_user/:path_id", { :controller => "users", :action => "destroy" })
 
   #SIGN IN
-  get("/users/sign_in", { :controller => "users", :action => "sign_in" })
+  #get("/users/sign_in", { :controller => "users", :action => "sign_in" })
 
-  get("/users/sign_up", { :controller => "users", :action => "sign_up" })
+  #get("/users/sign_up", { :controller => "users", :action => "sign_up" })
 
 
   #------------------------------
