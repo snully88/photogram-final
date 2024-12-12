@@ -44,7 +44,16 @@
 
         <% if current_user.present? %>
           <td>
-          Follow/Unfollow
+          <% follow_request = FollowRequest.where({ :sender_id => current_user.id, :recipient_id => a_user.id }).at(0) %>
+              <% if follow_request %>
+                <form action="/insert_follow_request" method="post">
+                  <input type="hidden" name="query_sender_id" value="729">
+                  <input type="hidden" name="query_recipient" value="<%= current_user.id %>">
+                  <button type="submit"> Follow </button>
+                </form>
+              <% else %>
+                Unfollow
+              <% end %>
           <td>
         <%end%>
       
