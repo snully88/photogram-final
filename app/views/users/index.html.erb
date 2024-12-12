@@ -45,10 +45,14 @@
         <% if current_user.present? %>
           <td>
           <% follow_request = FollowRequest.where({ :sender_id => current_user.id, :recipient_id => a_user.id }).at(0) %>
-              <% if follow_request %>
+              <% if follow_request && follow_request.status =="accepted" %>
                 <a href="/delete_follow_request/<%= follow_request.id %>">
                   Unfollow
                 </a>
+              <% elsif follow_request && follow_request.status =="pending" %>
+                Request Sent
+                <a href="/delete_follow_request/<%= follow_request.id %>">
+                  Cancel
                 </a>
               <% else %>
                 <form action="/insert_follow_request" method="post">
@@ -56,7 +60,6 @@
                   <input type="hidden" name="query_recipient" value="<%= current_user.id %>">
                   <button type="submit"> Follow </button>
                 </form>
-                Request sent
               <% end %>
           <td>
         <%end%>
@@ -72,5 +75,4 @@
     </table>
   </div>
 </div>
-
-<hr>
+</hr>
