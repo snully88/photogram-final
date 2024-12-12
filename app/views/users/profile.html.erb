@@ -2,7 +2,8 @@
 
 <div class="profile-info">
   <p>Private: <%= current_user.private %>
-  <p> Followers: 
+  <p> Followers: <%= @follower_count %>
+  <p> Following: <%= @following_count %>
   <p>Email: <%= current_user.email %></p>
   <p>Total Photos: <%= current_user.photos.count %></p>
   <p>Total Likes: <%= current_user.likes.count %></p>

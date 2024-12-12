@@ -56,7 +56,9 @@ class UsersController < ApplicationController
   end
 
   def profile 
-    the_user = current_user 
+    the_user = current_user
+    followers_count = FollowRequest.where(recipient_id: the_user.id).count
+    following_count = FollowRequest.where(sender_id: the_user.id).count
     render({ :template => "users/profile" })
   end
 
