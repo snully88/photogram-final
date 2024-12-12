@@ -1,8 +1,74 @@
 <h1><%= current_user.username %>'s Profile</h1>
 
 <div class="profile-info">
+  <p>Private: <%= current_user.private %>
+  <p> Followers: 
   <p>Email: <%= current_user.email %></p>
   <p>Total Photos: <%= current_user.photos.count %></p>
   <p>Total Likes: <%= current_user.likes.count %></p>
   <p>Total Comments: <%= current_user.comments.count %></p>
+</div>
+
+
+<h2> Own Photos (<%= current_user.photos.count%>) </h2>
+<div class="photos">
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          Image
+        </th>
+
+        <th>
+          Caption
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Posted
+        </th>
+
+        <th>
+          Likes
+        </th>
+
+        <th>
+        </th>
+      </tr>
+      <% current_user.photos.each do |a_photo| %>
+      <tr>
+        <td>
+           <img src="<%= a_photo.image %>" alt="Description of Image" />
+          <%= a_photo.image %>
+        </td>
+
+        <td>
+          <%= a_photo.caption %>
+        </td>
+
+        <td>
+          <%= a_photo.owner.id %> 
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_photo.created_at) %> ago
+        </td>
+
+        <td>
+          <%= a_photo.likes_count %> 
+        </td>
+
+        <td>
+          <a href="/photos/<%= a_photo.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+
 </div>
