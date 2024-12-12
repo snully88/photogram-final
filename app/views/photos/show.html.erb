@@ -59,6 +59,13 @@
         Fans
       </dt>
       <dd>
+        <ul>
+          <% @the_photo.likes.each do |like| %>
+            <li>
+              <%= like.fan.username %> - liked at <%= like.created_at.strftime("%B %d, %Y %H:%M") %>
+            </li>
+          <% end %>
+        </ul>
 
       </dd>
 
@@ -80,6 +87,29 @@
 </div>
 
 <hr>
+
+<h2>Comments:</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Comment</th>
+      <th>Time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @the_photo.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.username %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.created_at.strftime("%B %d, %Y %H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Add a new comment:</h3>
 
 
 <div>
