@@ -24,7 +24,8 @@
         Image
       </dt>
       <dd>
-        <%= @the_photo.image %> ago
+        <img src="<%= @the_photo.image %>" alt="Description of Image" />
+        <%= @the_photo.image %> 
       </dd>
 
       <dt>
@@ -66,6 +67,15 @@
             </li>
           <% end %>
         </ul>
+
+
+            <!--<% if user_signed_in? %>
+              <form action="/modify_like" method="post">
+                <button>
+                  like
+                </button>
+              </form>
+            <% end %>-->
 
       </dd>
 

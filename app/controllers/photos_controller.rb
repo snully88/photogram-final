@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+  
   def index
     matching_photos = Photo.all
 
