@@ -21,6 +21,7 @@ class PhotosController < ApplicationController
 
   def create
     the_photo = Photo.new
+    
 
     if the_photo.valid?
       the_photo.save

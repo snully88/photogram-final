@@ -1,13 +1,17 @@
-<h1><%= current_user.username %>'s Profile</h1>
+<h1><%= @the_user.username %>'s Profile</h1>
 
 <div class="profile-info">
-  <p>Private: <%= current_user.private %>
-  <p> Followers: <%= @follower_count %>
-  <p> Following: <%= @following_count %>
-  <p>Email: <%= current_user.email %></p>
-  <p>Total Photos: <%= current_user.photos.count %></p>
-  <p>Total Likes: <%= current_user.likes.count %></p>
-  <p>Total Comments: <%= current_user.comments.count %></p>
+  <p> Private: <%= @the_user.private %></p>
+  <p> Following: 
+    <% accepted_count = FollowRequest.where(sender_id: @the_user.id).select { |follow| follow.status == "accepted" }.count %>
+     <%= accepted_count %>
+  <p> Followers:
+    <% follower_count = FollowRequest.where(recipient_id: @the_user.id).select { |follow| follow.status == "accepted" }.count %>
+      <%= follower_count %>
+  <p>Email: <%= @the_user.email %></p>
+  <p>Total Photos: <%= @the_user.photos.count %></p>
+  <p>Total Likes: <%= @the_user.likes.count %></p>
+  <p>Total Comments: <%= @the_user.comments.count %></p>
 </div>
 
 <ul>
