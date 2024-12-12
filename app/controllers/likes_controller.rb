@@ -19,6 +19,11 @@ class LikesController < ApplicationController
 
   def create
     the_like = Like.new
+    the_like.photo_id = params.fetch("photo_id")
+    the_like.fan_id = params.fetch("fan_id")
+    the_like.save
+
+    #redirect_to("/photos/#{the_like.photo_id}")
 
     if the_like.valid?
       the_like.save

@@ -21,6 +21,11 @@
         <th>
           Private?
         </th>
+        <% if current_user.present? %>
+          <th>
+          Follow/Unfollow
+          <th>
+        <%end%>
 
 
         <th>
@@ -37,6 +42,12 @@
           <%= a_user.private ? 'Yes' : 'No' %>
         </td>
 
+        <% if current_user.present? %>
+          <td>
+          Follow/Unfollow
+          <td>
+        <%end%>
+      
         <td>
           <a href="/users/<%= a_user.id %>">
             Show details

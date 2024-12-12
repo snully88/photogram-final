@@ -13,7 +13,7 @@
 
   <% if current_user.present? %>
     <form action="/insert_photo" method="post">
-    class="form-horizontal" enctype="multipart/form-data">
+    <class="form-horizontal" enctype="multipart/form-data">
         
         <label for="browser_input_image">
           Image
@@ -89,7 +89,7 @@
         </td>
 
         <td>
-          <%= a_photo.owner.id %> 
+          <%= a_photo.owner.username %> 
         </td>
 
         <td>

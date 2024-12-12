@@ -12,9 +12,11 @@
       </div>
 
       <div>
+        <%if @the_photo.owner.username == current_user.username%>
         <a href="/delete_photo/<%= @the_photo.id %>">
-          Delete photo
+          Delete this photo
         </a>
+        <%end%>
       </div>
     </div>
 
@@ -39,7 +41,7 @@
         Owner
       </dt>
       <dd>
-        <%= @the_photo.owner_id %>
+        <%= @the_photo.owner.username %>
       </dd>
 
       <dt>
@@ -68,7 +70,15 @@
           <% end %>
         </ul>
 
+        <dt>Add a fan</dt>
+          <dd>
 
+            <form action="/insert_like" method="post">
+              <input type="hidden" name="photo_id" value="729">
+              <input type="hidden" name="fan_id" value="<%= current_user.id %>">
+              <button type="submit">Like</button>
+            </form>
+      </dd>
             <!--<% if user_signed_in? %>
               <form action="/modify_like" method="post">
                 <button>

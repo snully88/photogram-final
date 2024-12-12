@@ -10,6 +10,20 @@
   <p>Total Comments: <%= current_user.comments.count %></p>
 </div>
 
+<ul>
+    <li>
+      <a href="/users/:username">Profile</a>
+    </li>
+    <li>
+      <a href="/users/:username/liked_photos">Liked photos</a>
+    </li>
+    <li>
+      <a href="/users/:username/feed">Feed</a>
+    </li>
+    <li>
+      <a href="/users/:username/discover">Discover</a>
+    </li>
+  </ul>
 
 <h2> Own Photos (<%= current_user.photos.count%>) </h2>
 <div class="photos">
@@ -53,7 +67,7 @@
         </td>
 
         <td>
-          <%= a_photo.owner.id %> 
+          <%= a_photo.owner.username %> 
         </td>
 
         <td>
