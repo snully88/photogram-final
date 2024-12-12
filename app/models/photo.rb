@@ -20,4 +20,6 @@ class Photo < ApplicationRecord
   validates :image, presence: true
   #validates :caption, length: { maximum: 300 }
   has_many  :comments, class_name: "Comment", foreign_key: "photo_id", dependent: :destroy
+
+  mount_uploader :image, ImageUploader
 end
