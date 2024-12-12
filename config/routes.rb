@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-
+  
   # Routes for the Comment resource:
 
   # CREATE
@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the User resource:
-
+  get("/users/:username", { :controller => "users", :action => "profile" })
   # CREATE
   post("/insert_user", { :controller => "users", :action => "create" })
           

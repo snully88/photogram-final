@@ -54,4 +54,10 @@ class UsersController < ApplicationController
 
     redirect_to("/users", { :notice => "User deleted successfully."} )
   end
+
+  def profile 
+    the_user = current_user 
+    render({ :template => "users/profile" })
+  end
+
 end

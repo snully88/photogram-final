@@ -1,0 +1,8 @@
+<h1><%= current_user.username %>'s Profile</h1>
+
+<div class="profile-info">
+  <p>Email: <%= current_user.email %></p>
+  <p>Total Photos: <%= current_user.photos.count %></p>
+  <p>Total Likes: <%= current_user.likes.count %></p>
+  <p>Total Comments: <%= current_user.comments.count %></p>
+</div>
