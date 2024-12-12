@@ -24,6 +24,17 @@
       <a href="/users/:username/discover">Discover</a>
     </li>
   </ul>
+  Requests
+  <ul>
+    <% FollowRequest.where({ :sender_id => current_user.id}).each do |follow| %>
+      <% if follow.status =="pending" %>
+          <% recipient_user = User.where({ :id => follow.recipient_id }).at(0) %>
+        <li>
+        <%= recipient_user.username %> 
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 
 <h2> Own Photos (<%= current_user.photos.count%>) </h2>
 <div class="photos">
